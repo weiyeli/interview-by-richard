@@ -95,42 +95,62 @@ private:
 class Solution3 {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        int n = (int)nums1.size();
-        int m = (int)nums2.size();
 
-        if (n > m)  //保证数组1一定最短
-        {
-            return findMedianSortedArrays(nums2, nums1);
+        int m = (int)nums1.size();
+        int n = (int)nums2.size();
+
+        // 保证数组1一定最短
+        if (m > n) return findMedianSortedArrays(nums2, nums1);
+
+        // 要保证分割线左边的元素中的最大值一定是中位数的组成
+        // 不管是m+n之和奇数还是偶数，左边的元素都需要满足的个数为 (m+n+1)/2
+        int totalLeft = (m + n + 1) / 2;
+
+        // 这里定义两个变量: i 和 j
+        // i: 第一个数组分割线右边的第一个元素的下标
+        // j: 第二个数组分割线右边的第一个元素的下标
+        // 我们可以得出这么几个公式：
+        // 1. i == m
+        // 2. j == n
+        // 3. i + j == m + n
+
+        // 下面使用二分查找的方法来寻找分割线的位置
+        // 在 nums1 的区间 [0, m] 里寻找恰当的分割线
+        // 使得 nums1[i-1] <= nums2[j] && nums2[j - 1] <= nums1[i]
+        int left = 0, right = m;
+        while (left < right) {
+            int i = left + (right - left + 1) / 2;
+            int j = totalLeft - i;
+            if (nums1[i-1] > nums2[j]) {
+                // 下一轮搜索区间: [left, i - 1]
+                right = i - 1;
+            } else {
+                // 下一轮搜索区间: [i, right]
+                left = i;
+            }
         }
 
-        // Ci 为第i个数组的割,比如C1为2时表示第1个数组只有2个元素。LMaxi为第i个数组割后的左元素。RMini为第i个数组割后的右元素。
-        int LMax1, LMax2, RMin1, RMin2, c1, c2, lo = 0, hi = 2 * n;  //我们目前是虚拟加了'#'所以数组1是2*n长度
+        int i = left, j = totalLeft - i;
+        int nums1LeftMax = ((i == 0) ? INT_MIN: nums1[i-1]);
+        int nums1RightMin = ((i == m) ? INT_MAX : nums1[i]);
+        int nums2LeftMax = ((j == 0) ? INT_MIN: nums2[j-1]);
+        int nums2RightMin = ((j == n) ? INT_MAX: nums2[j]);
 
-        while (lo <= hi)   //二分
-        {
-            c1 = (lo + hi) / 2;  //c1是二分的结果
-            c2 = m + n - c1;
-
-            LMax1 = (c1 == 0) ? INT_MIN : nums1[(c1 - 1) / 2];
-            RMin1 = (c1 == 2 * n) ? INT_MAX : nums1[c1 / 2];
-            LMax2 = (c2 == 0) ? INT_MIN : nums2[(c2 - 1) / 2];
-            RMin2 = (c2 == 2 * m) ? INT_MAX : nums2[c2 / 2];
-
-            if (LMax1 > RMin2)
-                hi = c1 - 1;
-            else if (LMax2 > RMin1)
-                lo = c1 + 1;
-            else
-                break;
+        int sum = m + n;
+        if (sum % 2) {
+            // 基数
+            return max(nums1LeftMax, nums2LeftMax);
+        } else {
+            // 偶数
+            return (max(nums1LeftMax, nums2LeftMax) + min(nums1RightMin, nums2RightMin))/ 2.0;
         }
-        return (max(LMax1, LMax2) + min(RMin1, RMin2)) / 2.0;
     }
 };
 
 int main(int argc, const char * argv[]) {
-    Solution s;
-    vector<int> nums1 = {1, 2};
-    vector<int> nums2 = {3};
+    Solution3 s;
+    vector<int> nums1 = {};
+    vector<int> nums2 = {1};
     double ans = s.findMedianSortedArrays(nums1, nums2);
     cout << ans << endl;
 }
