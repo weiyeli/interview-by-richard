@@ -11,29 +11,25 @@ using namespace std;
 
 struct ListNode {
      int val;
-     ListNode *next;
-     ListNode(int x) : val(x), next(NULL) {}
+     ListNode* next;
+     ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
         if (head == nullptr || head->next == nullptr) return head;
-        ListNode *pre = nullptr, *cur, *next;
+        ListNode* pre = nullptr;
+        ListNode* cur = head;
         cur = head;
-        next = cur->next;
-        while (cur->next != nullptr && next->next != nullptr)
+        while (cur)
         {
+            ListNode* temp = cur->next;
             cur->next = pre;
             pre = cur;
-            cur = next;
-            next = next->next;
+            cur = temp;
         }
-        if (next != nullptr) {
-            next->next = cur;
-            cur->next = pre;
-        }
-        return next;
+        return pre;
     }
 };
 
@@ -51,7 +47,7 @@ int main(int argc, const char * argv[]) {
     Solution s = Solution();
     ListNode *head = s.reverseList(node1);
 
-    while (head->next != nullptr) {
+    while (head) {
         cout << head->val << endl;
         head = head->next;
     }
