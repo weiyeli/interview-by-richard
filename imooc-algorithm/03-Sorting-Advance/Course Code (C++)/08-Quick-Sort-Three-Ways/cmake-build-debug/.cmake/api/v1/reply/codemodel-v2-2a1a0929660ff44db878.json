@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "08_Quick_Sort_Three_Ways",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "08_Quick_Sort_Three_Ways::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-08_Quick_Sort_Three_Ways-Debug-87a0b4e96140e01989c6.json",
+					"name" : "08_Quick_Sort_Three_Ways",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/liweiye/Projects/Github/interview-by-richard/Algorithm/imooc-algorithm/03-Sorting-Advance/Course Code (C++)/08-Quick-Sort-Three-Ways/cmake-build-debug",
+		"source" : "/Users/liweiye/Projects/Github/interview-by-richard/Algorithm/imooc-algorithm/03-Sorting-Advance/Course Code (C++)/08-Quick-Sort-Three-Ways"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
