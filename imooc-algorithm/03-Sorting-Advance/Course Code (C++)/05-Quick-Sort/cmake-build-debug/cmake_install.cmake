@@ -1,4 +1,4 @@
-# Install script for directory: /Users/liweiye/Projects/interview-by-richard/Algorithm/imooc-algorithm/03-Sorting-Advance/Course Code (C++)/05-Quick-Sort
+# Install script for directory: /Users/liweiye/Projects/Github/interview-by-richard/imooc-algorithm/03-Sorting-Advance/Course Code (C++)/05-Quick-Sort
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/liweiye/Projects/interview-by-richard/Algorithm/imooc-algorithm/03-Sorting-Advance/Course Code (C++)/05-Quick-Sort/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/liweiye/Projects/Github/interview-by-richard/imooc-algorithm/03-Sorting-Advance/Course Code (C++)/05-Quick-Sort/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
