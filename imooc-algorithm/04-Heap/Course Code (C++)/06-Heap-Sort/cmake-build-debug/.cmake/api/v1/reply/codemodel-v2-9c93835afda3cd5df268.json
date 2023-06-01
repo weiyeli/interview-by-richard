@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "06_Heap_Sort",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "06_Heap_Sort::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-06_Heap_Sort-Debug-67ae593269ef2863dade.json",
+					"name" : "06_Heap_Sort",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/liweiye/Documents/GitHub/interview-by-richard/imooc-algorithm/04-Heap/Course Code (C++)/06-Heap-Sort/cmake-build-debug",
+		"source" : "/Users/liweiye/Documents/GitHub/interview-by-richard/imooc-algorithm/04-Heap/Course Code (C++)/06-Heap-Sort"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
