@@ -1,25 +1,7 @@
-//
-//  main.cpp
-//  LRUCache
-//
-//  Created by ricardooli on 2022/2/6.
-//
-
 #include <iostream>
 #include <list>
-#include <utility>
-#include <unordered_map>
 
 using namespace std;
-
-//使用hash_map和list实现的LRU。 实现了get和put操作
-//get: 得到对应的value，并且移到队列首。
-//put: 不存在：队列首加入，此时根据容量可能会挤掉尾元素。存在：移动到队列首。
-
-
-// 改进点: 如果get发生缺页是否需要处理，这时候可以添加一个
-// hash_map存储key-value，并在get不到数据时，put一下即可。
-// 参考资料: https://zhuanlan.zhihu.com/p/34133067
 
 class LRUCache {
 private:
@@ -30,7 +12,7 @@ public:
     LRUCache(int capacity) {
         this->capacity = capacity;
     }
-    
+
     int get(int key) {
         if (map.find(key) == map.end()) {
             return -1;
@@ -43,7 +25,7 @@ public:
         map[key] = linkedList.begin();
         return kv.second;
     }
-    
+
     void put(int key, int value) {
         // 如果原来不存在
         if (map.find(key) == map.end()) {
@@ -67,8 +49,17 @@ public:
     }
 };
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main() {
+    LRUCache *cache = new LRUCache(10);
+    cache->put(1, 1);
+    cache->put(2, 2);
+    cache->put(3, 3);
+    cache->put(4, 4);
+    cache->put(5, 5);
+
+    cout << "value is " << cache->get(1) << endl;
+    cout << "value is " << cache->get(2) << endl;
+    cout << "value is " << cache->get(3) << endl;
+    cout << "value is " << cache->get(4) << endl;
+    cout << "value is " << cache->get(5) << endl;
 }
