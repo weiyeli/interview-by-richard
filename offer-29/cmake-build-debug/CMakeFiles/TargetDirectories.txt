@@ -1,0 +1,3 @@
+/Users/liweiye/Documents/GitHub/interview-by-richard/offer-29/cmake-build-debug/CMakeFiles/offer_29.dir
+/Users/liweiye/Documents/GitHub/interview-by-richard/offer-29/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/liweiye/Documents/GitHub/interview-by-richard/offer-29/cmake-build-debug/CMakeFiles/rebuild_cache.dir
